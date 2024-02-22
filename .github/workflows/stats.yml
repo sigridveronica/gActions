@@ -30,7 +30,7 @@ jobs:
            python-version: '3.11' #same as the version in stats script 
         
        - name: Run script
-         run: python ./Roadmap/stats.py #the file where stats.py - this sript generates a .json 
+         run: python /Users/sigridveronica/Desktop/Github_actions/roadmap-retos-programacion/Roadmap/stats.py #./Roadmap/stats.py #the file where stats.py - this sript generates a .json 
 
        - name: Commit and Push changes #check if there is an action existing in the github actions repo: https://github.com/actions?q=setup&type=all&language=&sort=
        #Search: Marketplace: github acxtions marketplace: https://github.com/marketplace?type=actions
