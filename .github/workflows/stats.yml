@@ -1,0 +1,51 @@
+name: Stats
+
+on:
+  push:
+    branches: [main]
+#reserved word in Github Actions: when to launch the action
+# Everytime there's a push to the branch, in this case [main]
+# Everytime there's a pull request
+# Rcurring process: every h, s, minute...
+
+ jobs:
+   build: 
+     runs-on: ubuntu-latest #in which machine will be exectued [ubuntu, windows, in documentation]
+
+     permissions:
+       contents: write
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      
+      
+     #https://github.com/actions/checkout 
+     #in steps you have all the actions, each with a name
+     steps:
+       - name: Checkout repo
+         uses: actions/checkout@v4 #go to repo github "github actions" there is the job for every thing we want to do, in this case the checkout #que vamos a necesitar para obtener codigo del repositorio
+      
+       #https://github.com/actions/setup-python -- Action setup python 
+       - name: Setup Python
+         uses: actions/setup-python@v5 
+         with: #now we need to chose the version
+           python-version: '3.11' #same as the version in stats script 
+        
+       - name: Run script
+         run: python ./Roadmap/stats.py #the file where stats.py - this sript generates a .json 
+
+       - name: Commit and Push changes #check if there is an action existing in the github actions repo: https://github.com/actions?q=setup&type=all&language=&sort=
+       #Search: Marketplace: github acxtions marketplace: https://github.com/marketplace?type=actions
+       #Git Auto Commit: the one we want - we need to check for updates and so to see if the actions are good to use
+         uses: stefanzweifel/git-auto-commit-action@v5
+       #this allows to make comiit and push 
+         with:
+           commit_messages: Update stats #this is all stated in the repository of this guy
+           commit_user_name: sigridveronica [Github Actions]
+           commit_user_email: sigridveroncia@gmail.com
+           commit_author: sigridveronica
+           
+         
+       
+       
+       
+      
