@@ -6,9 +6,8 @@ on:
 #reserved word in Github Actions: when to launch the action
 # Everytime there's a push to the branch, in this case [main]
 # Everytime there's a pull request
-# Rcurring process: every h, s, minute...
-
- jobs:
+# Rcurring process: every h, s, minute..
+jobs:
    build: 
      runs-on: ubuntu-latest #in which machine will be exectued [ubuntu, windows, in documentation]
 
